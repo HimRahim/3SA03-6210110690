@@ -1,7 +1,6 @@
 import React, { useState} from 'react';
 import CharacterCard from './CharacterCard';
 import _ from 'lodash';
-// import ResetButton from "./ResetButton";
 
 const prepareStateFromWord = given_word => {
     let word = given_word.toUpperCase()
@@ -39,7 +38,7 @@ export default function WordCard(props) {
             }
             else{
                 console.log('reset, next attemp')
-                setState({...state, guess: '',attemp: state.attemp+1})
+                
             }
         }
 
@@ -55,14 +54,15 @@ export default function WordCard(props) {
                     <CharacterCard value={c} key={i} activationHandler={activationHandler} attemp={state.attemp}/>
                 )
             }
-            {/* <ResetButton state={state.completed}/> */}
             <div className="container text-center">
                 <button className='btn btn-danger reset-btn' onClick={handleClick}>Reset</button>
             </div>
             <div className="container">
                 <br />
                 <h1>{state.guess}</h1>
-
+                {
+                    state.guess.length == state.word.length && <h1>{state.guess == state.word? 'correct' : 'wrong'}</h1>
+                }
             </div>
         </div>
     )
