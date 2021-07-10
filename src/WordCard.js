@@ -31,18 +31,21 @@ export default function WordCard(props) {
         let guess = state.guess + c
         setState({...state, guess})
 
-        if(guess.length === state.word.length){
-            if(guess === state.word){
-                console.log('yeah!')
-                
-            }
-            else{
-                console.log('reset, next attemp')
-                
-            }
-        }
+        
 
         console.log(guess)
+    }
+
+    if(state.guess.length === state.word.length){
+        if(state.guess === state.word){
+            console.log('yeah!')
+            
+            
+        }
+        else{
+            console.log('reset, next attemp')
+            
+        }
     }
 
     
